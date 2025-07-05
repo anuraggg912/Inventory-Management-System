@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bill Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .bill-info {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .bill-info strong {
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7ff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🧾 Bill Summary</h2>
+
+    <div class="bill-info">
+        <p><strong>Customer:</strong> <span th:text="${bill.customerName}">Name</span></p>
+        <p><strong>Total Amount:</strong> ₹<span th:text="${bill.total}">0.0</span></p>
+        <p><strong>Billing Date:</strong> <span th:text="${bill.date}">Date</span></p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Quantity</th>
+                <th>Price (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${bill.items}">
+                <td th:text="${item.productId}">1</td>
+                <td th:text="${item.quantity}">2</td>
+                <td th:text="${item.price}">100.0</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

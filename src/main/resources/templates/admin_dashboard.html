@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .dashboard-container {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: block;
+            margin: 12px 0;
+            padding: 14px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        a.logout {
+            background-color: #dc3545;
+        }
+
+        a.logout:hover {
+            background-color: #b02a37;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, Admin!</h1>
+
+        <a th:href="@{/products/add}">➕ Add Product</a>
+        <a th:href="@{/products/view}">📦 View Products</a>
+        <a th:href="@{/bills/create}">🧾 Generate Bill</a>
+        <a th:href="@{/bills/all}">📄 View All Bills</a>
+        <a th:href="@{/logout}" class="logout">🚪 Logout</a>
+    </div>
+</body>
+</html>

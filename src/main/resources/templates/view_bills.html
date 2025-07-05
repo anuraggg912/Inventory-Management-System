@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Bills</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f5f9;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f7ff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📄 All Bills</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Bill ID</th>
+                <th>Customer Name</th>
+                <th>Total</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="bill : ${bills}">
+                <td th:text="${bill.id}">1</td>
+                <td th:text="${bill.customerName}">Customer</td>
+                <td th:text="${bill.total}">0.0</td>
+                <td th:text="${bill.date}">2025-07-04</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
